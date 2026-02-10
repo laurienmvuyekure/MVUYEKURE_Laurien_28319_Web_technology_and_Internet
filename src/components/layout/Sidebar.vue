@@ -118,6 +118,32 @@
       </div>
 
       <div class="sidebar-section">
+        <h3 class="section-title">Collaboration</h3>
+        <ul class="action-list" role="menu">
+          <li role="none">
+            <router-link 
+              to="/teams"
+              class="action-button"
+              role="menuitem"
+            >
+              <span aria-hidden="true">👥</span>
+              <span>Teams</span>
+            </router-link>
+          </li>
+          <li role="none">
+            <router-link 
+              to="/admin"
+              class="action-button"
+              role="menuitem"
+            >
+              <span aria-hidden="true">🔧</span>
+              <span>Admin Dashboard</span>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
         <h3 class="section-title">Settings & Help</h3>
         <ul class="action-list" role="menu">
           <li role="none">
