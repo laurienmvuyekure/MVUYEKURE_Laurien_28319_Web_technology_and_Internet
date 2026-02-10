@@ -16,6 +16,9 @@
       </div>
     </div>
     
+    <!-- Quick Task Creator -->
+    <QuickTaskCreator @task-created="handleQuickTaskCreate" />
+    
     <!-- Task Statistics -->
     <TaskStats :tasks="filteredTasks" />
     
@@ -51,6 +54,7 @@ import TaskStats from '../components/tasks/TaskStats.vue'
 import TaskSearch from '../components/tasks/TaskSearch.vue'
 import EditTaskModal from '../components/tasks/EditTaskModal.vue'
 import DashboardTimer from '../components/time/DashboardTimer.vue'
+import QuickTaskCreator from '../components/tasks/QuickTaskCreator.vue'
 
 export default {
   name: 'Dashboard',
@@ -59,7 +63,8 @@ export default {
     TaskStats,
     TaskSearch,
     EditTaskModal,
-    DashboardTimer
+    DashboardTimer,
+    QuickTaskCreator
   },
   setup() {
     const tasks = inject('tasks', ref([]))
@@ -166,6 +171,10 @@ export default {
     const saveEditedTask = (updatedTask) => {
       editTask(updatedTask.id, updatedTask)
     }
+
+    const handleQuickTaskCreate = (newTask) => {
+      tasks.value.push(newTask)
+    }
     
     return {
       tasks,
@@ -182,7 +191,8 @@ export default {
       editModalOpen,
       editingTask,
       openEditModal,
-      saveEditedTask
+      saveEditedTask,
+      handleQuickTaskCreate
     }
   }
 }

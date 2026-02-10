@@ -96,6 +96,22 @@
           </li>
         </ul>
       </div>
+
+      <div class="sidebar-section">
+        <h3 class="section-title">Settings & Help</h3>
+        <ul class="action-list" role="menu">
+          <li role="none">
+            <router-link 
+              to="/settings"
+              class="action-button"
+              role="menuitem"
+            >
+              <span aria-hidden="true">⚙️</span>
+              <span>Settings</span>
+            </router-link>
+          </li>
+        </ul>
+      </div>
       
       <div class="sidebar-section">
         <h3 class="section-title">Shared With Me</h3>
