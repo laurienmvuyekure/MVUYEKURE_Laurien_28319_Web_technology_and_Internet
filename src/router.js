@@ -5,6 +5,7 @@ import Dashboard from './views/Dashboard.vue'
 import TimeManager from './views/TimeManager.vue'
 import AdvancedDashboard from './views/AdvancedDashboard.vue'
 import TimeBlocker from './components/time/TimeBlocker.vue'
+import Documents from './views/Documents.vue'
 
 // Placeholder components for pages not yet created
 const Profile = { template: '<div class="profile"><h2>Profile</h2><p>User profile page</p></div>' }
@@ -59,6 +60,11 @@ const routes = [
     path: '/time-blocker',
     name: 'TimeBlocker',
     component: TimeBlocker
+  },
+  {
+    path: '/documents',
+    name: 'Documents',
+    component: Documents
   }
 ]
 

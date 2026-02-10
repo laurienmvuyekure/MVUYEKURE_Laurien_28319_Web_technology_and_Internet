@@ -84,6 +84,16 @@
               <span>Time Blocker</span>
             </router-link>
           </li>
+          <li role="none">
+            <router-link 
+              to="/documents"
+              class="action-button"
+              role="menuitem"
+            >
+              <span aria-hidden="true">📁</span>
+              <span>Documents</span>
+            </router-link>
+          </li>
         </ul>
       </div>
       

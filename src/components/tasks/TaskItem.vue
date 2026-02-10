@@ -133,9 +133,8 @@ export default {
         month: 'short',
         year: 'numeric'
       })
-    }
-    
-    isOverdue(dueDate) {
+    },
+        isOverdue(dueDate) {
       if (!dueDate) return false
       return new Date(dueDate) < new Date() && !this.task.completed
     },
