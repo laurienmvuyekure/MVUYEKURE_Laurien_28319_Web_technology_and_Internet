@@ -7,6 +7,10 @@
       </div>
       
       <form @submit.prevent="handleLogin" class="auth-form" novalidate>
+        <div v-if="generalError" class="general-error" role="alert">
+          {{ generalError }}
+        </div>
+        
         <div class="form-group">
           <label for="email" class="form-label">Email Address</label>
           <input
@@ -192,7 +196,12 @@ export default {
     }
     
     const handleLogin = async () => {
-      if (!validateForm()) return
+      generalError.value = ''
+      
+      if (!validateForm()) {
+        generalError.value = 'Please fill in all required fields correctly'
+        return
+      }
       
       loading.value = true
       
@@ -201,6 +210,13 @@ export default {
         await new Promise(resolve => setTimeout(resolve, 1500))
         
         // In real app, this would be an API call
+        
+        // Store user info in localStorage
+        localStorage.setItem('userAuthenticated', 'true')
+        localStorage.setItem('userEmail', email.value)
+        if (rememberMe.value) {
+          localStorage.setItem('rememberEmail', email.value)
+        }
 
         // Navigate to dashboard
         router.push('/dashboard')
@@ -334,6 +350,17 @@ input.error {
   color: #dc3545;
   font-size: 14px;
   margin-top: 4px;
+}
+
+.general-error {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  role: alert;
 }
 
 .help-text {
