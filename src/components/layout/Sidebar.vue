@@ -86,6 +86,16 @@
           </li>
           <li role="none">
             <router-link 
+              to="/recurring-tasks"
+              class="action-button"
+              role="menuitem"
+            >
+              <span aria-hidden="true">🔄</span>
+              <span>Recurring Tasks</span>
+            </router-link>
+          </li>
+          <li role="none">
+            <router-link 
               to="/documents"
               class="action-button"
               role="menuitem"
@@ -100,6 +110,16 @@
       <div class="sidebar-section">
         <h3 class="section-title">Settings & Help</h3>
         <ul class="action-list" role="menu">
+          <li role="none">
+            <router-link 
+              to="/reminders"
+              class="action-button"
+              role="menuitem"
+            >
+              <span aria-hidden="true">🔔</span>
+              <span>Reminders</span>
+            </router-link>
+          </li>
           <li role="none">
             <router-link 
               to="/settings"
