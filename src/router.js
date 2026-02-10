@@ -13,6 +13,8 @@ import Reminders from './views/Reminders.vue'
 import RecurringTasksView from './views/RecurringTasksView.vue'
 import DependenciesView from './views/DependenciesView.vue'
 import UserProfile from './views/UserProfile.vue'
+import AdminDashboard from './views/AdminDashboard.vue'
+import TeamManagement from './views/TeamManagement.vue'
 import authService from './services/authService'
 
 // Placeholder components (remove when implemented)
@@ -93,6 +95,16 @@ const routes = [
     path: '/task-dependencies',
     name: 'TaskDependencies',
     component: DependenciesView
+  },
+  {
+    path: '/teams',
+    name: 'Teams',
+    component: TeamManagement
+  },
+  {
+    path: '/admin',
+    name: 'AdminDashboard',
+    component: AdminDashboard
   }
 ]
 
