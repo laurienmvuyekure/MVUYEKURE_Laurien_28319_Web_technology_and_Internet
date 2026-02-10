@@ -3,6 +3,7 @@ import Login from './views/Login.vue'
 import NewTask from './components/tasks/NewTask.vue'
 import Dashboard from './views/Dashboard.vue'
 import TimeManager from './views/TimeManager.vue'
+import AdvancedDashboard from './views/AdvancedDashboard.vue'
 import TimeBlocker from './components/time/TimeBlocker.vue'
 
 // Placeholder components for pages not yet created

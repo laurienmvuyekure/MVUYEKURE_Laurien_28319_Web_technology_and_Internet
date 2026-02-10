@@ -133,7 +133,7 @@ export default {
         month: 'short',
         year: 'numeric'
       })
-    },
+    }
     
     isOverdue(dueDate) {
       if (!dueDate) return false
