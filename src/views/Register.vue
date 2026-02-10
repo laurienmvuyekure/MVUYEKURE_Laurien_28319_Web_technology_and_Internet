@@ -1,14 +1,38 @@
 <template>
   <div class="auth-container">
-    <div class="auth-card" role="main" aria-labelledby="login-title">
+    <div class="auth-card" role="main" aria-labelledby="register-title">
       <div class="auth-header">
-        <h1 id="login-title">Login to TaskBuddy</h1>
-        <p class="auth-subtitle">Access your tasks and collaborate with others</p>
+        <h1 id="register-title">Create Your Account</h1>
+        <p class="auth-subtitle">Join TaskBuddy and organize your life</p>
       </div>
       
-      <form @submit.prevent="handleLogin" class="auth-form" novalidate>
+      <form @submit.prevent="handleRegister" class="auth-form" novalidate>
         <div v-if="generalError" class="general-error" role="alert">
           {{ generalError }}
+        </div>
+
+        <div v-if="successMessage" class="success-message" role="status">
+          {{ successMessage }}
+        </div>
+        
+        <div class="form-group">
+          <label for="name" class="form-label">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            v-model="name"
+            @input="clearError('name')"
+            required
+            :aria-describedby="nameError ? 'name-error' : 'name-help'"
+            :class="{ 'error': nameError }"
+            placeholder="John Doe"
+          />
+          <div v-if="nameError" id="name-error" class="error-message" role="alert">
+            {{ nameError }}
+          </div>
+          <div v-else id="name-help" class="help-text">
+            Your full name
+          </div>
         </div>
         
         <div class="form-group">
@@ -28,7 +52,7 @@
             {{ emailError }}
           </div>
           <div v-else id="email-help" class="help-text">
-            Enter your registered email address
+            We'll never share your email
           </div>
         </div>
         
@@ -41,10 +65,10 @@
               v-model="password"
               @input="clearError('password')"
               required
-              autocomplete="current-password"
+              autocomplete="new-password"
               :aria-describedby="passwordError ? 'password-error' : 'password-help'"
               :class="{ 'error': passwordError }"
-              placeholder="Enter your password"
+              placeholder="Enter a strong password"
             />
             <button
               type="button"
@@ -59,7 +83,35 @@
             {{ passwordError }}
           </div>
           <div v-else id="password-help" class="help-text">
-            Enter your password
+            Minimum 6 characters
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="passwordconfirm" class="form-label">Confirm Password</label>
+          <div class="password-input">
+            <input
+              :type="showPasswordConfirm ? 'text' : 'password'"
+              id="passwordconfirm"
+              v-model="passwordConfirm"
+              @input="clearError('passwordConfirm')"
+              required
+              autocomplete="new-password"
+              :aria-describedby="passwordConfirmError ? 'password-confirm-error' : null"
+              :class="{ 'error': passwordConfirmError }"
+              placeholder="Confirm your password"
+            />
+            <button
+              type="button"
+              @click="togglePasswordConfirmVisibility"
+              class="password-toggle"
+              :aria-label="showPasswordConfirm ? 'Hide password' : 'Show password'"
+            >
+              <span aria-hidden="true">{{ showPasswordConfirm ? '👁️' : '👁️‍🗨️' }}</span>
+            </button>
+          </div>
+          <div v-if="passwordConfirmError" id="password-confirm-error" class="error-message" role="alert">
+            {{ passwordConfirmError }}
           </div>
         </div>
         
@@ -67,77 +119,60 @@
           <label class="checkbox-label">
             <input
               type="checkbox"
-              v-model="rememberMe"
-              aria-describedby="remember-help"
+              v-model="agreeToTerms"
+              aria-describedby="terms-help"
             />
-            <span>Remember me</span>
+            <span>I agree to the 
+              <router-link to="#" class="terms-link">Terms of Service</router-link> 
+              and 
+              <router-link to="#" class="terms-link">Privacy Policy</router-link>
+            </span>
           </label>
-          <router-link to="/forgot-password" class="forgot-link">
-            Forgot password?
-          </router-link>
         </div>
         
         <button 
           type="submit" 
           class="auth-button"
-          :disabled="loading"
+          :disabled="loading || !agreeToTerms"
           :aria-busy="loading"
         >
-          <span v-if="loading">Logging in...</span>
-          <span v-else>Login</span>
-        </button>
-        
-        <div class="auth-divider">
-          <span>or</span>
-        </div>
-        
-        <button 
-          type="button" 
-          @click="signInWithGoogle"
-          class="google-button"
-          :disabled="loading"
-        >
-          <span class="google-icon" aria-hidden="true">G</span>
-          Continue with Google
+          <span v-if="loading">Creating Account...</span>
+          <span v-else>Create Account</span>
         </button>
       </form>
       
       <div class="auth-footer">
         <p>
-          Don't have an account?
-          <router-link to="/register" class="auth-link">
-            Sign up here
+          Already have an account?
+          <router-link to="/login" class="auth-link">
+            Sign in here
           </router-link>
         </p>
-        
-        <router-link to="/demo" class="demo-link">
-          Try demo account
-        </router-link>
       </div>
     </div>
     
     <div class="auth-features">
-      <h2>Accessible Task Management</h2>
+      <h2>Get Started Today</h2>
       <ul class="feature-list" role="list">
         <li>
-          <span class="feature-icon" aria-hidden="true">👁️</span>
-          Screen reader optimized
+          <span class="feature-icon" aria-hidden="true">✨</span>
+          Organize your tasks efficiently
         </li>
         <li>
-          <span class="feature-icon" aria-hidden="true">🎨</span>
-          Customizable accessibility settings
-        </li>
-        <li>
-          <span class="feature-icon" aria-hidden="true">🔒</span>
-          Secure and private
-        </li>
-        <li>
-          <span class="feature-icon" aria-hidden="true">🤝</span>
-          Collaborate with others
+          <span class="feature-icon" aria-hidden="true">🎯</span>
+          Track your progress
         </li>
         <li>
           <span class="feature-icon" aria-hidden="true">🔔</span>
-          Smart reminders
+          Get smart reminders
+        </li>
+        <li>
+          <span class="feature-icon" aria-hidden="true">🤝</span>
+          Collaborate with your team
+        </li>
+        <li>
+          <span class="feature-icon" aria-hidden="true">📊</span>
+          View detailed analytics
         </li>
       </ul>
     </div>
@@ -150,22 +185,33 @@ import { useRouter } from 'vue-router'
 import authService from '../services/authService'
 
 export default {
-  name: 'AuthLogin',
+  name: 'AuthRegister',
   setup() {
     const router = useRouter()
     
+    const name = ref('')
     const email = ref('')
     const password = ref('')
-    const rememberMe = ref(false)
+    const passwordConfirm = ref('')
     const showPassword = ref(false)
+    const showPasswordConfirm = ref(false)
+    const agreeToTerms = ref(false)
     const loading = ref(false)
     
+    const nameError = ref('')
     const emailError = ref('')
     const passwordError = ref('')
+    const passwordConfirmError = ref('')
     const generalError = ref('')
+    const successMessage = ref('')
     
     const validateForm = () => {
       let valid = true
+      
+      if (!name.value || name.value.trim().length < 2) {
+        nameError.value = 'Name must be at least 2 characters'
+        valid = false
+      }
       
       if (!email.value) {
         emailError.value = 'Email is required'
@@ -178,85 +224,107 @@ export default {
       if (!password.value) {
         passwordError.value = 'Password is required'
         valid = false
+      } else if (password.value.length < 6) {
+        passwordError.value = 'Password must be at least 6 characters'
+        valid = false
+      }
+
+      if (!passwordConfirm.value) {
+        passwordConfirmError.value = 'Please confirm your password'
+        valid = false
+      } else if (password.value !== passwordConfirm.value) {
+        passwordConfirmError.value = 'Passwords do not match'
+        valid = false
+      }
+      
+      if (!agreeToTerms.value) {
+        generalError.value = 'You must agree to the Terms of Service'
+        valid = false
       }
       
       return valid
     }
     
     const clearError = (field) => {
+      if (field === 'name') nameError.value = ''
       if (field === 'email') emailError.value = ''
       if (field === 'password') passwordError.value = ''
+      if (field === 'passwordConfirm') passwordConfirmError.value = ''
       generalError.value = ''
+      successMessage.value = ''
     }
     
     const togglePasswordVisibility = () => {
       showPassword.value = !showPassword.value
     }
+
+    const togglePasswordConfirmVisibility = () => {
+      showPasswordConfirm.value = !showPasswordConfirm.value
+    }
     
-    const handleLogin = async () => {
+    const handleRegister = async () => {
       generalError.value = ''
+      successMessage.value = ''
       
-      if (!validateForm()) {
-        generalError.value = 'Please fill in all required fields correctly'
-        return
-      }
+      if (!validateForm()) return
       
       loading.value = true
       
       try {
         // Simulate network delay
-        await new Promise(resolve => setTimeout(resolve, 1000))
+        await new Promise(resolve => setTimeout(resolve, 1200))
         
         // Use auth service
-        const result = authService.login(email.value, password.value)
+        const result = authService.register({
+          name: name.value,
+          email: email.value,
+          password: password.value,
+          passwordConfirm: passwordConfirm.value
+        })
         
         if (result.success) {
-          // Remember email if checkbox is checked
-          if (rememberMe.value) {
-            localStorage.setItem('rememberEmail', email.value)
-          } else {
-            localStorage.removeItem('rememberEmail')
-          }
+          successMessage.value = result.message
+          // Clear form
+          name.value = ''
+          email.value = ''
+          password.value = ''
+          passwordConfirm.value = ''
+          agreeToTerms.value = false
           
-          // Navigate to dashboard
+          // Redirect to login
           setTimeout(() => {
-            router.push('/dashboard')
-          }, 500)
+            router.push('/login')
+          }, 2000)
         } else {
           generalError.value = result.message
         }
         
       } catch (error) {
-        generalError.value = error.message || 'Login failed. Please try again.'
+        generalError.value = error.message || 'Registration failed. Please try again.'
       } finally {
         loading.value = false
       }
     }
     
-    const signInWithGoogle = () => {
-      generalError.value = 'Google authentication coming soon'
-    }
-    
-    // Load remembered email if available
-    const rememberEmail = localStorage.getItem('rememberEmail')
-    if (rememberEmail) {
-      email.value = rememberEmail
-      rememberMe.value = true
-    }
-    
     return {
+      name,
       email,
       password,
-      rememberMe,
+      passwordConfirm,
       showPassword,
+      showPasswordConfirm,
+      agreeToTerms,
       loading,
+      nameError,
       emailError,
       passwordError,
+      passwordConfirmError,
       generalError,
+      successMessage,
       clearError,
       togglePasswordVisibility,
-      handleLogin,
-      signInWithGoogle
+      togglePasswordConfirmVisibility,
+      handleRegister
     }
   }
 }
@@ -276,7 +344,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 400px;
+  max-width: 450px;
   margin: 0 auto;
   width: 100%;
 }
@@ -286,7 +354,7 @@ export default {
   margin-bottom: 30px;
 }
 
-#login-title {
+#register-title {
   margin: 0 0 10px 0;
   color: #212529;
   font-size: 28px;
@@ -322,6 +390,7 @@ input[type="text"] {
   border-radius: 6px;
   font-size: 16px;
   transition: border-color 0.2s;
+  box-sizing: border-box;
 }
 
 input:focus {
@@ -371,7 +440,16 @@ input.error {
   border-radius: 6px;
   margin-bottom: 20px;
   font-size: 14px;
-  role: alert;
+}
+
+.success-message {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
 }
 
 .help-text {
@@ -381,32 +459,30 @@ input.error {
 }
 
 .form-options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 20px;
 }
 
 .checkbox-label {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   cursor: pointer;
   font-size: 14px;
 }
 
 .checkbox-label input {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  cursor: pointer;
 }
 
-.forgot-link {
+.terms-link {
   color: #0066cc;
   text-decoration: none;
-  font-size: 14px;
 }
 
-.forgot-link:hover {
+.terms-link:hover {
   text-decoration: underline;
 }
 
@@ -420,85 +496,28 @@ input.error {
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s;
 }
 
-.auth-button:hover:not(:disabled),
-.auth-button:focus:not(:disabled) {
-  background: #0055aa;
-  outline: 3px solid #ff9900;
+.auth-button:hover:not(:disabled) {
+  background: #0052a3;
 }
 
 .auth-button:disabled {
-  opacity: 0.6;
+  background: #ccc;
   cursor: not-allowed;
-}
-
-.auth-divider {
-  display: flex;
-  align-items: center;
-  margin: 20px 0;
-  color: #6c757d;
-}
-
-.auth-divider::before,
-.auth-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: #dee2e6;
-}
-
-.auth-divider span {
-  padding: 0 15px;
-}
-
-.google-button {
-  width: 100%;
-  padding: 14px;
-  background: white;
-  color: #212529;
-  border: 2px solid #dee2e6;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: all 0.2s;
-}
-
-.google-button:hover:not(:disabled),
-.google-button:focus:not(:disabled) {
-  border-color: #0066cc;
-  background: #f8f9fa;
-  outline: none;
-}
-
-.google-icon {
-  width: 24px;
-  height: 24px;
-  background: #4285f4;
-  color: white;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
 }
 
 .auth-footer {
   text-align: center;
-  margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid #dee2e6;
 }
 
 .auth-footer p {
-  margin: 0 0 15px 0;
+  margin: 0;
   color: #6c757d;
+  font-size: 14px;
 }
 
 .auth-link {
@@ -511,77 +530,59 @@ input.error {
   text-decoration: underline;
 }
 
-.demo-link {
-  display: inline-block;
-  color: #6c757d;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.demo-link:hover {
-  text-decoration: underline;
-  color: #0066cc;
-}
-
 .auth-features {
-  padding: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 60px 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: white;
-  background: linear-gradient(135deg, #0066cc 0%, #004d99 100%);
 }
 
 .auth-features h2 {
-  margin: 0 0 30px 0;
-  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 28px;
 }
 
 .feature-list {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .feature-list li {
   margin-bottom: 20px;
-  font-size: 16px;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
 .feature-icon {
-  font-size: 20px;
-  width: 40px;
-  height: 40px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (max-width: 992px) {
-  .auth-container {
-    grid-template-columns: 1fr;
-  }
-  
-  .auth-features {
-    display: none;
-  }
-  
-  .auth-card {
-    max-width: none;
-    padding: 20px;
-  }
+  font-size: 24px;
+  min-width: 30px;
 }
 
 @media (max-width: 768px) {
-  .form-options {
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
+  .auth-container {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card {
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  .auth-features {
+    padding: 40px 24px;
+  }
+
+  #register-title {
+    font-size: 24px;
+  }
+
+  .auth-features h2 {
+    font-size: 24px;
   }
 }
 </style>

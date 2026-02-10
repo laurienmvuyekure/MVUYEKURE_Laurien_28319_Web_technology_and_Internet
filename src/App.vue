@@ -61,6 +61,7 @@ import LayoutHeader from './components/layout/Header.vue'
 import LayoutSidebar from './components/layout/Sidebar.vue'
 import HelpersAccessibilityControls from './components/helpers/AccessibilityControls.vue'
 import HelpersNotification from './components/helpers/Notification.vue'
+import authService from './services/authService'
 
 export default {
   name: 'App',
@@ -145,16 +146,17 @@ export default {
       notifications.value = notifications.value.filter(n => n.id !== id)
     }
     
-    // Simulate user login
+    // Load authenticated user
     onMounted(() => {
-      currentUser.value = {
-        name: 'Laurien MVUYEKURE',
-        email: 'laurien@mvuyekure.com',
-        role: 'Admin'
+      // Get current authenticated user from auth service
+      const user = authService.getCurrentUser()
+      if (user) {
+        currentUser.value = user
       }
+      
       // load persisted avatar if available
       const saved = localStorage.getItem('userAvatar')
-      if (saved) {
+      if (saved && currentUser.value) {
         currentUser.value.avatar = saved
       }
       
@@ -402,6 +404,7 @@ export default {
     }
 
     const handleLogout = async () => {
+      authService.logout()
       currentUser.value = null
       localStorage.removeItem('userAvatar')
       await router.push('/login')

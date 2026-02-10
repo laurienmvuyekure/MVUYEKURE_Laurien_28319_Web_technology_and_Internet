@@ -42,11 +42,12 @@
         </button>
         
         <div class="avatar-wrapper">
-          <button
+          <router-link 
+            to="/profile"
             class="avatar-button"
-            @click="triggerAvatarInput"
             type="button"
-            :aria-label="user && user.name ? `Change profile photo for ${user.name}` : 'Change profile photo'"
+            :aria-label="user && user.name ? `View profile for ${user.name}` : 'View profile'"
+           
           >
             <img
               v-if="user && user.avatar"
@@ -60,8 +61,7 @@
               alt="Default profile photo"
               class="avatar-img"
             />
-          </button>
-          <input ref="avatarInput" class="sr-only" type="file" accept="image/*" @change="onFileChange" />
+          </router-link>
         </div>
 
         <button
