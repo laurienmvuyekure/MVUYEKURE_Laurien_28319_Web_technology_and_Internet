@@ -96,6 +96,16 @@
           </li>
           <li role="none">
             <router-link 
+              to="/task-dependencies"
+              class="action-button"
+              role="menuitem"
+            >
+              <span aria-hidden="true">🔗</span>
+              <span>Task Dependencies</span>
+            </router-link>
+          </li>
+          <li role="none">
+            <router-link 
               to="/documents"
               class="action-button"
               role="menuitem"
