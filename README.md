@@ -17,4 +17,9 @@ This complete solution provides:
 ### 1. GET All Students
 Retrieves a list of all registered students.
 
-**Request:**
+**Request:** 
+|    Method |                       Endpoint                        |    Description          | Status Code            |
+|-----------|-------------------------------------------------------|-------------------------|----------------------------------|
+| 1. GET       | http://localhost:8083/api/students                       | Get all students           | 200 OK                       | 
+ 
+ Screenshot: ![image alt]
