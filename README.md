@@ -79,9 +79,12 @@ Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_2
 
 # 🛠️ Technology Stack
 Java 21
+
 Spring Boot 3.x
+
 Maven
+
 Tomcat
 
 # Project structure
-![image alt]()
+![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/816d5b91137c5c591f83e0f15968511517ba21b3/Project%20structure.jpg)
