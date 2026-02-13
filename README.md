@@ -2,15 +2,18 @@
 
 A comprehensive RESTful API for managing student registrations and information. Built with Spring Boot.
 
-This complete solution provides:
-1. ✅ All required endpoints
-2. ✅ 5 Sample students with different majors and GPAs
-3. ✅ Proper package structure (controller.registration, model.registration)
-4. ✅ In-memory storage using ArrayList
-5. ✅ HTTP status codes (200, 201, 400, 404, 409)
-6. ✅ Email validation
-7. ✅ Comprehensive documentation
-8. ✅ Test scenarios for Postman
+✅ Key Features Implemented
+✓ CRUD operations for student management
+✓ Filter students by major (path variable)
+✓ Filter students by minimum GPA (query parameter)
+✓ Email validation
+✓ Duplicate email prevention
+✓ Proper HTTP status codes
+✓ 5 sample students with diverse majors and GPAs
+✓ Clean package structure (controller/model with inner packages)
+✓ In-memory storage using ArrayList
+✓ Thread-safe ID generation
+✓ Comprehensive error handling
 
 ## 📋 API Endpoints
 
@@ -73,3 +76,12 @@ Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_2
 #  After Update and Create new students
 
 Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/e052a03f6dc5ea1e4983539330c3b5c9b6439fbc/After%20post%20and%20update.jpg)
+
+# 🛠️ Technology Stack
+Java 21
+Spring Boot 3.x
+Maven
+Tomcat
+
+# Project structure
+![image alt]()
