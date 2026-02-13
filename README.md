@@ -15,7 +15,7 @@ This complete solution provides:
 ## 📋 API Endpoints
 
 ### 1. GET All Students
-Retrieves a list of all registered students.
+**1. Retrieves a list of all registered students.**
 
 **Request:** 
 |    Method |                       Endpoint                        |    Description          | Status Code            |
@@ -24,7 +24,7 @@ Retrieves a list of all registered students.
  
  Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/2a9912b84291aaef731b969ecef834ccf2e2359f/Get%20all%20students.jpg)
 
-Retrieves a list of registered students by using ID.
+**2. Retrieves a list of registered students by using ID.**
 
 **Request**: 
 |    Method |                       Endpoint                        |    Description          | Status Code            |
