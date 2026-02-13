@@ -23,3 +23,10 @@ Retrieves a list of all registered students.
 | 1. GET       | http://localhost:8083/api/students                       | Get all students           | 200 OK                       | 
  
  Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/2a9912b84291aaef731b969ecef834ccf2e2359f/Get%20all%20students.jpg)
+
+**Request**: 
+|    Method |                       Endpoint                        |    Description          | Status Code            |
+|-----------|-------------------------------------------------------|-------------------------|----------------------------------|
+| 1. GET       | http://localhost:8083/api/students/1                      | Get all students           | 200 OK                       | 
+
+Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/3580946cc25ba0657193d1617a0478c106c5cfe2/Get%20student%20by%20ID.jpg)
