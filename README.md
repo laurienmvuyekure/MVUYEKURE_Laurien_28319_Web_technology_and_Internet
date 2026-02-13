@@ -80,7 +80,7 @@ Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_2
 # 🛠️ Technology Stack
 Java 21
 
-Spring Boot 3.x
+Spring Boot 4.0.2
 
 Maven
 
