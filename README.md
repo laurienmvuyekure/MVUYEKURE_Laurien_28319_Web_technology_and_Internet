@@ -32,3 +32,4 @@ https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_I
 - Tomcat
 
 ## 📦 Project Structure
+https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/dea27dda93a7f1dc0139ff94640e52cf23d9168d/Project%20Structure.jpg
