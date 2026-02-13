@@ -52,7 +52,7 @@ or equal to minimum.**
 
 Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/03873ff6195bd9b487e364e4e8ba150163e94569/Filter%20by%20GPA.jpg)
 
-**4. Create new students** 
+**5. Create new students** 
 
 **Request**: 
 |    Method |                       Endpoint                        |    Description          | Status Code            |
@@ -60,3 +60,12 @@ Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_2
 | 5. POST       | http://localhost:8083/api/students/                   | Get students by filter for Mojar           | 201 CREATED                       | 
 
 Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/e941a0b2869c53b0f2ed62628a8d94537786a4aa/Post%20new%20student.jpg)
+
+**6. Update information of student by using ID** 
+
+**Request**: 
+|    Method |                       Endpoint                        |    Description          | Status Code            |
+|-----------|-------------------------------------------------------|-------------------------|----------------------------------|
+| 5. POST       | http://localhost:8083/api/students/                   | Get students by filter for Mojar           | 201 CREATED                       | 
+
+Screenshot: ![image alt]()
