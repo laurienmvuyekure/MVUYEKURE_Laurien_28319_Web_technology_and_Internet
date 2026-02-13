@@ -66,6 +66,10 @@ Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_2
 **Request**: 
 |    Method |                       Endpoint                        |    Description          | Status Code            |
 |-----------|-------------------------------------------------------|-------------------------|----------------------------------|
-| 5. PUT       | http://localhost:8083/api/students/                   | Upadate informations of student by using ID           | 200 OK                       | 
+| 5. PUT       | http://localhost:8083/api/students/7                   | Upadate informations of student by using ID           | 200 OK                       | 
 
 Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/65fe51cd9e602090598c41a074fc2d11171176dc/Update%20info.jpg)
+
+#  After Update and Create new students
+
+Screenshot: ![image alt]()
