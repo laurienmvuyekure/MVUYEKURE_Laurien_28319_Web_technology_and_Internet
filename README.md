@@ -42,12 +42,21 @@ Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_2
 
 Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/31cefe288dcd12b9d54017ec136a104dba031676/Get%20all%20students%20by%20majo.jpg)
 
-**3. Retrieves a list of registered students by filtering students with GPA greater than
+**4. Retrieves a list of registered students by filtering students with GPA greater than
 or equal to minimum.**
 
 **Request**: 
 |    Method |                       Endpoint                        |    Description          | Status Code            |
 |-----------|-------------------------------------------------------|-------------------------|----------------------------------|
-| 3. GET       | http://localhost:8083/api/students/filter?gpa=3.5                    | Get students by filter for Mojar           | 200 OK                       | 
+| 4. GET       | http://localhost:8083/api/students/filter?gpa=3.5                    | Get students by filter for Mojar           | 200 OK                       | 
 
 Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/03873ff6195bd9b487e364e4e8ba150163e94569/Filter%20by%20GPA.jpg)
+
+**4. Create new students** 
+
+**Request**: 
+|    Method |                       Endpoint                        |    Description          | Status Code            |
+|-----------|-------------------------------------------------------|-------------------------|----------------------------------|
+| 5. POST       | http://localhost:8083/api/students/                   | Get students by filter for Mojar           | 201 CREATED                       | 
+
+Screenshot: ![image alt]()
