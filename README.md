@@ -4,12 +4,12 @@ A  RESTful API for managing library book collections built with Spring Boot.
 
 ##  Features
 
-- ✅ Complete CRUD operations for books
-- ✅ Search books by title (case-insensitive)
-- ✅ In-memory storage using ArrayList
-- ✅ Proper HTTP status codes (200, 201, 204, 404)
-- ✅ Clean architecture with separation of concerns
-- ✅ Comprehensive error handling
+1.  ✅ Complete CRUD operations for books
+2.  ✅ Search books by title (case-insensitive)
+3.  ✅ In-memory storage using ArrayList
+4.  ✅ Proper HTTP status codes (200, 201, 204, 404)
+5.  ✅ Clean architecture with separation of concerns
+6.  ✅ Comprehensive error handling
 
 ## 📋 API Endpoints
 
