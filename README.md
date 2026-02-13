@@ -13,7 +13,7 @@ A  RESTful API for managing library book collections built with Spring Boot.
 
 ## 📋 API Endpoints
 
-|    Method |                       Endpoint                        |    Description          |           Status Code            |  Screenshots |
+|    Method |                       Endpoint                        |    Description          | Status Code            |Screenshots |
 |-----------|-------------------------------------------------------|-------------------------|----------------------------------|----------------------- |
  GET       | http://localhost:8082/api/books                       | Get all books           | 200 OK                       | https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/01b261fa0ef79c8a7e1706d7742d89a83820235f/Getting%20books.jpg |
 | GET       | http://localhost:8082/api/books/{3}               | Get book by ID          | 200 (OK)/ 404 - NOT Found       | https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/a919002db1bf6e47f1d0fab64c9d89a11d8aab45/Getting%20book%20by%20ID.jpg | 
