@@ -40,4 +40,4 @@ Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_2
 |-----------|-------------------------------------------------------|-------------------------|----------------------------------|
 | 3. GET       | http://localhost:8083/api/students/major/{major}                      | Get students by filter for Mojar           | 200 OK                       | 
 
-Screenshot: ![image alt]()
+Screenshot: ![image alt](https://github.com/laurienmvuyekure/MVUYEKURE_Laurien_28319_Web_technology_and_Internet/blob/31cefe288dcd12b9d54017ec136a104dba031676/Get%20all%20students%20by%20majo.jpg)
