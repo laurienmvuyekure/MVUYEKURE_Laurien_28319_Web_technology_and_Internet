@@ -363,7 +363,7 @@ input.error {
   margin-top: 4px;
 }
 
-.general-error {
+.general-error [role="alert"] {
   background-color: #f8d7da;
   border: 1px solid #f5c6cb;
   color: #721c24;
@@ -371,7 +371,7 @@ input.error {
   border-radius: 6px;
   margin-bottom: 20px;
   font-size: 14px;
-  role: alert;
+  /*role: alert;*/
 }
 
 .help-text {

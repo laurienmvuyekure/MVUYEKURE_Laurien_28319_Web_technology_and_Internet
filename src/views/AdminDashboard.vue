@@ -664,7 +664,7 @@ export default {
 }
 
 .role-distribution {
-  space-y: 12px;
+  gap: 12px;
 }
 
 .role-item {
@@ -868,7 +868,7 @@ export default {
 }
 
 .permissions-list {
-  space-y: 8px;
+  gap: 8px;
 }
 
 .permission-item {
