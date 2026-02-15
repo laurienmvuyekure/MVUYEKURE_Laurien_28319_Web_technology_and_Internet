@@ -52,7 +52,7 @@
     <!-- Counter -->
     <p style="margin-left: -180px;">Count: {{ count }} </p>
     <button
-      @click="count++"
+      @click="count+s+"
   style="background-color: green; margin-left: -180px; color: white; padding: 5px 10px;"
     >
       Increase +
