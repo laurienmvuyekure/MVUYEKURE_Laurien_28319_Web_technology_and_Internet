@@ -1,5 +1,7 @@
 <script setup>
-import HelloWorld from './views/Dashboard.vue'
+import HelloWorld from './components/tasks/NewTask.vue'
+import NewTask from './components/tasks/NewTask.vue'
+
 </script>
 
 <template>
