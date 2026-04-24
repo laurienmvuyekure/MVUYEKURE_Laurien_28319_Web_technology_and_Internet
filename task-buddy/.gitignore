@@ -18,6 +18,11 @@ coverage
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# Environment variables
+.env
+.env.local
+.env.production
 *.suo
 *.ntvs*
 *.njsproj
