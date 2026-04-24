@@ -1,0 +1,12 @@
+[build]
+  command = "cd task-buddy && npm run build"
+  publish = "task-buddy/dist"
+  directory = "task-buddy"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
